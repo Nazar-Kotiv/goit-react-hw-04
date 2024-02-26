@@ -1,0 +1,18 @@
+.findInput {
+  border: 1px solid #ccc;
+  box-shadow: 0 1px #999;
+  padding: 12px;
+  border-radius: 5px;
+}
+.containerInput {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.textInput {
+  display: flex;
+}
+.findInput::placeholder {
+  color: #090909;
+}

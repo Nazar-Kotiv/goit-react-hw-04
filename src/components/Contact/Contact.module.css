@@ -1,0 +1,33 @@
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px #999;
+}
+.positionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.iconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+button {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px #999;
+}

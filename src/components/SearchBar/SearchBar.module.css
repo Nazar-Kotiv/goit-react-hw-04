@@ -1,4 +1,28 @@
 .header {
-  max-width: 100%;
-  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d2c7ff;
+  padding: 10px;
+  height: 60px;
+  width: 100%;
+}
+.form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.inputSearch {
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 400px;
+  padding-left: 40px;
+}
+.icon {
+  position: absolute;
+  left: 10px; /* Задаємо відступ для позиції іконки від лівого краю */
+  font-size: 20px; /* Розмір іконки, змініть за потребою */
 }

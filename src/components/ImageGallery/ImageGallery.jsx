@@ -1,11 +1,10 @@
-export default function ImageGallery() {
+import ImageCard from "../ImageCard/ImageCard";
+
+export default function ImageGallery({ items }) {
   return (
     <ul>
-      {/* Набір елементів списку із зображеннями */}
       <li>
-        <div>
-          <img src="" alt="" />
-        </div>
+        <ImageCard cards={items}></ImageCard>
       </li>
     </ul>
   );

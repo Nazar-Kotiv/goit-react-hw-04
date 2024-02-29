@@ -14,6 +14,7 @@ export default function App() {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [showBtn, setShowBtn] = useState(false);
 
   useEffect(() => {
     if (!query) {
@@ -25,13 +26,8 @@ export default function App() {
         setIsLoading(true);
         setError(false);
         const data = await fetchPhoto(query, page);
-        setPhotos((prevPhotos) => {
-          const newPhotos = [...prevPhotos, ...data];
-          if (data.length === 0) {
-            setIsLoading(false);
-          }
-          return newPhotos;
-        });
+        setPhotos((prevPhotos) => [...prevPhotos, ...data]);
+        setShowBtn(data.total_pages && data.total_pages !== page);
       } catch (error) {
         setError(true);
       } finally {
@@ -57,9 +53,7 @@ export default function App() {
       {error && <ErrorMessage />}
       <ImageGallery items={photos} />
       {isLoading && <Loader />}
-      {photos.length > 0 && !isLoading && (
-        <LoadMoreBtn onClick={handleLoadMore} />
-      )}
+      {showBtn && <LoadMoreBtn onClick={handleLoadMore} />}
     </>
   );
 }

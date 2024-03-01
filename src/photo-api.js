@@ -13,5 +13,5 @@ export const fetchPhoto = async (query, page) => {
     },
   });
 
-  return response.data.results;
+  return response.data;
 };

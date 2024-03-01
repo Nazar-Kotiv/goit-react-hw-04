@@ -5,7 +5,7 @@ import ImageGallery from "../ImageGallery/ImageGallery";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
-
+import ImageModal from "../ImageModal/ImageModal";
 import "./App.css";
 
 export default function App() {
@@ -15,6 +15,8 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (!query) {
@@ -26,7 +28,7 @@ export default function App() {
         setIsLoading(true);
         setError(false);
         const data = await fetchPhoto(query, page);
-        setPhotos((prevPhotos) => [...prevPhotos, ...data]);
+        setPhotos((prevPhotos) => [...prevPhotos, ...data.results]);
         setShowBtn(data.total_pages && data.total_pages !== page);
       } catch (error) {
         setError(true);
@@ -34,6 +36,7 @@ export default function App() {
         setIsLoading(false);
       }
     }
+
     getData();
   }, [page, query]);
 
@@ -47,13 +50,27 @@ export default function App() {
     setPage((prevPage) => prevPage + 1);
   };
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    openModal();
+  };
+  function closeModal() {
+    setModalIsOpen(false);
+  }
   return (
     <>
-      <SearchBar onSearch={handleSearch}> </SearchBar>
+      <SearchBar onSearch={handleSearch} />
       {error && <ErrorMessage />}
-      <ImageGallery items={photos} />
+      <ImageGallery items={photos} onImageClick={handleImageClick} />
       {isLoading && <Loader />}
       {showBtn && <LoadMoreBtn onClick={handleLoadMore} />}
+      {modalIsOpen && selectedImage && (
+        <ImageModal regular={selectedImage} closeModal={closeModal} />
+      )}
     </>
   );
 }

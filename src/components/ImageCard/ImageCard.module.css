@@ -5,9 +5,10 @@
 }
 
 .containerCard > div {
-  width: calc(20% - 10px);
+  width: calc(25% - 10px);
   margin: 5px;
   overflow: hidden;
+  box-shadow: 0 1px #999;
 }
 
 .img {

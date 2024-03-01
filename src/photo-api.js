@@ -7,7 +7,7 @@ export const fetchPhoto = async (query, page) => {
   const response = await axios.get("/search/photos", {
     params: {
       query: query,
-      per_page: 30,
+      per_page: 28,
       page,
       client_id: myKey,
     },

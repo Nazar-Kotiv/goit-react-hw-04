@@ -20,6 +20,7 @@
   overflow: auto;
   border-radius: 4px;
   outline: none;
+  object-fit: cover;
 }
 
 .image {

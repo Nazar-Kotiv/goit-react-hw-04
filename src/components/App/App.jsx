@@ -67,9 +67,13 @@ export default function App() {
       {error && <ErrorMessage />}
       <ImageGallery items={photos} onImageClick={handleImageClick} />
       {isLoading && <Loader />}
-      {showBtn && <LoadMoreBtn onClick={handleLoadMore} />}
-      {modalIsOpen && selectedImage && (
-        <ImageModal regular={selectedImage} closeModal={closeModal} />
+      {photos.length > 0 && showBtn && <LoadMoreBtn onClick={handleLoadMore} />}
+      {modalIsOpen && (
+        <ImageModal
+          isOpen={modalIsOpen}
+          regular={selectedImage}
+          closeModal={closeModal}
+        />
       )}
     </>
   );

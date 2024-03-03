@@ -1,18 +1,16 @@
-import css from "../ImageCard/ImageCard.module.css";
+import css from "./ImageCard.module.css";
 
-export default function ImageCard({ cards, onImageClick }) {
+export default function ImageCard({ card, onImageClick }) {
+  const { id, urls, alt_description } = card;
+
   return (
-    <div className={css.containerCard}>
-      {cards.map((card) => (
-        <div key={card.id}>
-          <img
-            onClick={() => onImageClick(card.urls.regular)}
-            src={card.urls.small}
-            alt={card.alt_description}
-            className={css.img}
-          />
-        </div>
-      ))}
+    <div className={css.container} key={id}>
+      <img
+        onClick={() => onImageClick(urls.regular)}
+        src={urls.small}
+        alt={alt_description}
+        className={css.image}
+      />
     </div>
   );
 }

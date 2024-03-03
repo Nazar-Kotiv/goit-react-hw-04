@@ -8,6 +8,7 @@
   width: 100%;
   box-shadow: 0 1px #999;
 }
+
 .form {
   display: flex;
   align-items: center;
@@ -26,4 +27,17 @@
   position: absolute;
   left: 10px;
   font-size: 20px;
+}
+.button {
+  display: flex;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  text-align: center;
+  border: none;
+  background-color: #fff8fe;
+  box-shadow: 0 1px #999;
 }

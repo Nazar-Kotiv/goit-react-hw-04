@@ -27,7 +27,9 @@ export default function SearchBar({ onSearch }) {
             autoFocus
             placeholder="Search images and photos"
           />
-          <button type="submit">Search</button>
+          <button className={css.button} type="submit">
+            Search
+          </button>
           <Toaster />
         </Form>
       </Formik>
